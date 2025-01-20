@@ -16,8 +16,13 @@ public class LocationController {
     private LocationService locationService;
 
     @GetMapping("nearby")
-    public List<String> getLocations(@ModelAttribute UserReference userReference) {
+    public List<String> getNearbyLocations(@ModelAttribute UserReference userReference) {
         return locationService.calculateDistance(userReference);
+    }
+
+    @GetMapping("all")
+    public List<LocationModel> getAllLocations() {
+        return locationService.getAll();
     }
 
     @PostMapping("add")

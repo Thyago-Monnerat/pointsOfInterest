@@ -20,6 +20,10 @@ public class LocationService {
     @Autowired
     private LocationRepository locationRepository;
 
+    public List<LocationModel> getAll(){
+        return locationRepository.findAll();
+    }
+
     public List<String> calculateDistance(UserReference userReference) {
 
         validateCoords(userReference.getUserX(), userReference.getUserY());
